@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshan DigiTech</title>
+    <meta name="description" content="Harshan DigiTech offers industry-aligned IT training, internships, and placement assistance. Courses: Full-Stack, Java, Python, React, Android, R Programming. Enroll via WhatsApp +91 9972235179.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables & Reset ===== */
+        :root {
+            --primary-light: #ffffff;
+            --secondary-light: #f8fafc;
+            --tertiary-light: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent-blue: #0056b3;  /* More professional blue */
+            --accent-indigo: #004085; /* Darker shade for contrast */
+            --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+            --accent-orange: #e67e22; /* Professional orange */
+            --accent-green: #27ae60;  /* Professional green */
+            --accent-purple: #8e44ad; /* Professional purple */
+            --accent-teal: #16a085;   /* Professional teal */
+            --success: #10b981;
+            --warning: #f59e0b;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --max-width: 1200px;
+            --section-spacing: 60px;
+            --card-spacing: 24px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--primary-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            margin-bottom: var(--section-spacing);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75em;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-size: 1.35rem;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 86, 179, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-primary {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .badge-warning {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            color: #3b2b00;
+        }
+
+        .badge-success {
+            background: linear-gradient(90deg, var(--accent-green), #059669);
+            color: white;
+        }
+
+        .badge-purple {
+            background: linear-gradient(90deg, var(--accent-purple), #7d3c98);
+            color: white;
+        }
+
+        .badge-teal {
+            background: linear-gradient(90deg, var(--accent-teal), #138d75);
+            color: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: var(--card-spacing);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 0;
+            padding: 16px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius-sm);
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: rotate(5deg);
+        }
+
+        .brand-text h1 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .brand-text .tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav-desktop a {
+            padding: 10px 16px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-desktop a:hover,
+        .nav-desktop a:focus {
+            color: var(--accent-blue);
+        }
+
+        .nav-desktop a:hover::after,
+        .nav-desktop a.active::after {
+            width: 80%;
+        }
+
+        .nav-desktop a.active {
+            color: var(--accent-blue);
+        }
+
+        .hamburger {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .hamburger:hover {
+            background: rgba(0, 86, 179, 0.1);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            margin-top: 10px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 14px 18px;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 8px;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(0, 86, 179, 0.05);
+            color: var(--accent-blue);
+            border-left-color: var(--accent-blue);
+            padding-left: 24px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            padding: 80px 10px;
+            min-height: 80vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h2 {
+            font-size: 2.75rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #fef3c7, #fed7aa);
+            color: #7c2d12;
+            font-weight: 700;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* ===== Advertise Banner ===== */
+        .advertise-banner {
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 64, 133, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 24px;
+            border-radius: var(--border-radius);
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-blue);
+        }
+
+        .advertise-banner h3 {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .advertise-banner p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .advertise-banner .btn {
+            background: white;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .advertise-banner .btn:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Special Offers Section ===== */
+        .offers-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 60px 0;
+            border-radius: var(--border-radius);
+            margin: 60px 0;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .offer-card.featured {
+            border-color: var(--accent-orange);
+            transform: scale(1.05);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .offer-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent-orange);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .offer-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        .offer-card.featured .offer-icon {
+            color: var(--accent-orange);
+        }
+
+        .offer-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .offer-description {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .offer-highlight {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+        }
+
+        .offer-features {
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .offer-features li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .offer-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* ===== Main Content Layout ===== */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        /* ===== About Section ===== */
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .highlight-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .highlight-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover i {
+            transform: scale(1.1);
+        }
+
+        /* ===== Courses Section ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .course-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-sm);
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .course-card:hover .course-icon {
+            transform: rotate(10deg);
+        }
+
+        .course-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .course-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .course-details {
+            margin-top: 20px;
+        }
+
+        .course-details summary {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: var(--border-radius-sm);
+            background: rgba(0, 86, 179, 0.05);
+            margin-bottom: 10px;
+            list-style: none;
+            transition: var(--transition);
+            color: var(--accent-blue);
+        }
+
+        .course-details summary:hover {
+            background: rgba(0, 86, 179, 0.1);
+        }
+
+        .course-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .course-details summary::after {
+            content: '+';
+            float: right;
+            transition: transform 0.3s;
+        }
+
+        .course-details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .course-syllabus {
+            padding: 15px;
+            background: rgba(0, 86, 179, 0.03);
+            border-radius: var(--border-radius-sm);
+            margin-top: 10px;
+        }
+
+        .course-syllabus ol {
+            margin-left: 20px;
+        }
+
+        .course-syllabus li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 10px;
+            color: var(--text-primary);
+        }
+
+        .course-syllabus li::before {
+            content: '▸';
+            position: absolute;
+            left: -15px;
+            color: var(--accent-blue);
+        }
+
+        .enroll-btn {
+            width: 100%;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        /* ===== Faculty Section ===== */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .faculty-card {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: var(--border-radius);
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .faculty-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent-blue);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .faculty-card:hover .faculty-img {
+            transform: scale(1.05);
+        }
+
+        .faculty-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .faculty-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 86, 179, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--accent-blue);
+        }
+
+        .faculty-social a:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Facilities Section ===== */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .facility-card {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: var(--border-radius);
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .facility-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .facility-card:hover i {
+            transform: scale(1.1);
+        }
+
+        /* ===== Testimonials ===== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            padding: 25px;
+            background: white;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-blue);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-primary);
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--accent-blue);
+            opacity: 0.2;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        /* ===== Google Reviews Section ===== */
+        .reviews-section {
+            background: var(--secondary-light);
+            padding: 60px 0;
+            border-radius: var(--border-radius);
+            margin: 60px 0;
+        }
+
+        .reviews-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .google-logo {
+            font-size: 2rem;
+            color: #4285F4;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .reviewer-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            margin-bottom: 5px;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Gallery Section ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            height: 180px;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===== Contact Section ===== */
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid #e2e8f0;
+            background: white;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar-card {
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .sidebar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 200px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            padding: 50px 0 25px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 50px;
+            background: var(--secondary-light);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: var(--transition);
+            display: block;
+            padding: 5px 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+        .footer-links li:hover {
+            color: var(--accent-blue);
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--accent-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+                padding: 60px 0;
+            }
+            
+            .hero-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .offer-card.featured {
+                transform: scale(1);
+            }
+            
+            .offer-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 0;
+            }
+            
+            .nav-desktop {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faculty-grid, .facilities-grid, .testimonials-grid, .reviews-grid, .offers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.9rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                padding: 10px 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+            
+            .advertise-banner h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== Animations ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="brand">
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Harshan DigiTech</h1>
+                    <div class="tagline">Computer Solutions & Digital Services • Chikkaballapur</div>
+                </div>
+            </div>
+
+            <nav>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="nav-desktop">
+                    <a href="#about" class="active">About</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#offers">Special Offers</a>
+                    <a href="#faculty">Faculty</a>
+                    <a href="#facilities">Facilities</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#about">About</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#offers">Special Offers</a>
+                    <a href="#faculty">Faculty</a>
+                    <a href="#facilities">Facilities</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge badge-primary">Start your tech career</span>
+                <h2>Practical IT Training with Placement Assistance</h2>
+                <p>Industry-aligned courses: Full-Stack Development (Java & Python), Web Technologies, Mobile App Development, Data Science, and more. Small batches with personalized mentorship.</p>
+                
+                <div class="hero-actions">
+                    <a href="#courses" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i> Explore Courses
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-phone-alt"></i> Request Callback
+                    </a>
+                </div>
+                
+                <div class="hero-badge">
+                    <i class="fas fa-fire"></i> Next batch starting soon - Limited seats!
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Harshan DigiTech students in computer lab">
+            </div>
+        </section>
+
+        <!-- Advertise Banner -->
+        <div class="advertise-banner">
+            <h3>Special Offer - Early Bird Discount!</h3>
+            <p>Enroll in any Full-Stack Development course before the end of this month and get <strong>20% OFF</strong> on course fees. Limited seats available!</p>
+            <a href="https://wa.me/919972235179?text=I'm interested in the Early Bird Offer" class="btn" target="_blank">
+                <i class="fas fa-gift"></i> Claim Offer Now
+            </a>
+        </div>
+
+        <!-- Special Offers Section -->
+        <section id="offers" class="offers-section fade-in">
+            <h3 class="text-center">Special Offers & Internship Programs</h3>
+            <p class="text-center text-muted">Exciting opportunities to boost your IT career with our limited-time offers</p>
+            
+            <div class="offers-grid">
+                <div class="offer-card featured">
+                    <div class="offer-badge">Featured</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4 class="offer-title">Paid Internship Program</h4>
+                    <p class="offer-description">Get hands-on experience with real projects and earn while you learn</p>
+                    <div class="offer-highlight">Stipend: ₹8,000-15,000/month</div>
+                    <ul class="offer-features">
+                        <li>3-6 months duration</li>
+                        <li>Real-world projects</li>
+                        <li>Mentorship from industry experts</li>
+                        <li>Certificate of completion</li>
+                        <li>Potential job placement</li>
+                    </ul>
+                    <a href="https://wa.me/919972235179?text=I'm interested in the Paid Internship Program" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-rocket"></i> Apply Now
+                    </a>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="offer-title">Group Discount</h4>
+                    <p class="offer-description">Learn with friends and save more</p>
+                    <div class="offer-highlight">Up to 25% OFF</div>
+                    <ul class="offer-features">
+                        <li>2 students: 10% discount each</li>
+                        <li>3 students: 15% discount each</li>
+                        <li>4+ students: 25% discount each</li>
+                        <li>Same course or different courses</li>
+                        <li>Flexible batch timings</li>
+                    </ul>
+                    <a href="https://wa.me/919972235179?text=I'm interested in Group Discount" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-user-friends"></i> Enroll as Group
+                    </a>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="offer-title">Scholarship Program</h4>
+                    <p class="offer-description">Merit-based scholarships for deserving students</p>
+                    <div class="offer-highlight">Up to 50% OFF</div>
+                    <ul class="offer-features">
+                        <li>Based on academic performance</li>
+                        <li>Special consideration for girls</li>
+                        <li>Economically weaker sections</li>
+                        <li>Submit previous marks cards</li>
+                        <li>Limited scholarships available</li>
+                    </ul>
+                    <a href="https://wa.me/919972235179?text=I'm interested in Scholarship Program" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-award"></i> Apply for Scholarship
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <!-- Main Content -->
+            <main id="main-content">
+                <!-- About Section -->
+                <section id="about" class="fade-in">
+                    <h3>About Harshan DigiTech</h3>
+                    <p>Harshan DigiTech is a premier computer training institute in Chikkaballapur, offering industry-relevant IT courses, internships, and placement assistance. Our mission is to bridge the gap between academic knowledge and industry requirements.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <i class="fas fa-user-graduate"></i>
+                            <h4>Expert Faculty</h4>
+                            <p>Industry professionals with 5+ years of experience</p>
+                        </div>
+                        <div class="highlight-card">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Hands-on Training</h4>
+                            <p>Practical sessions with real-world projects</p>
+                        </div>
+                        <div class="highlight-card">
+                            <i class="fas fa-briefcase"></i>
+                            <h4>Placement Support</h4>
+                            <p>Resume building and interview preparation</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Courses Section -->
+                <section id="courses" class="fade-in">
+                    <h3>Our Courses</h3>
+                    <p class="text-muted">Comprehensive IT training programs designed for career growth. Click on any course to view detailed syllabus.</p>
+                    
+                    <div class="courses-grid">
+                        <!-- Programming Courses -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-c"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">C Programming</h4>
+                                    <div class="course-meta">6 weeks • Basics to pointers</div>
+                                </div>
+                            </div>
+                            
+                            <p>Master the fundamentals of C programming language from basic syntax to advanced concepts like pointers and memory management.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Setup & compilation (gcc, IDEs)</li>
+                                        <li>Variables, data types, operators</li>
+                                        <li>Control flow: if, switch, loops</li>
+                                        <li>Functions, recursion, scope</li>
+                                        <li>Arrays & strings</li>
+                                        <li>Pointers & dynamic memory</li>
+                                        <li>Structures, unions, enums</li>
+                                        <li>File I/O, preprocessor</li>
+                                        <li>Debugging and mini project</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in C Programming" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">C++ Programming</h4>
+                                    <div class="course-meta">8 weeks • OOP & STL</div>
+                                </div>
+                            </div>
+                            
+                            <p>Learn object-oriented programming with C++, including classes, inheritance, polymorphism, and the Standard Template Library.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>C++ syntax, compilation & toolchain</li>
+                                        <li>Classes, objects, encapsulation</li>
+                                        <li>Constructors/destructors & operator overloading</li>
+                                        <li>Inheritance, polymorphism, virtual functions</li>
+                                        <li>Templates & generic programming</li>
+                                        <li>Standard Template Library: vector, map, set</li>
+                                        <li>Smart pointers & memory management</li>
+                                        <li>File handling & exception handling</li>
+                                        <li>Project: console app or small game</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in C++ Programming" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fab fa-java"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Java Programming</h4>
+                                    <div class="course-meta">10 weeks • Core to Advanced</div>
+                                </div>
+                            </div>
+                            
+                            <p>Comprehensive Java programming course covering core concepts, OOP principles, collections, and advanced topics.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Java basics, data types, operators</li>
+                                        <li>Control structures and loops</li>
+                                        <li>Object-oriented programming concepts</li>
+                                        <li>Exception handling and file I/O</li>
+                                        <li>Collections framework</li>
+                                        <li>Multithreading and concurrency</li>
+                                        <li>JDBC and database connectivity</li>
+                                        <li>Networking and socket programming</li>
+                                        <li>Project: Desktop application</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Java Programming" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Python Programming</h4>
+                                    <div class="course-meta">8 weeks • Basics to Django</div>
+                                </div>
+                            </div>
+                            
+                            <p>Learn Python from fundamentals to web development with Django framework. Perfect for beginners and aspiring developers.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Python syntax and basic concepts</li>
+                                        <li>Data structures and algorithms</li>
+                                        <li>Object-oriented programming in Python</li>
+                                        <li>File handling and exception handling</li>
+                                        <li>Database connectivity with SQLite</li>
+                                        <li>Web development with Django</li>
+                                        <li>REST API development</li>
+                                        <li>Data analysis with Pandas</li>
+                                        <li>Final project: Web application</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Python Programming" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <!-- Web Development Courses -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">HTML, CSS & JavaScript</h4>
+                                    <div class="course-meta">6 weeks • Frontend Fundamentals</div>
+                                </div>
+                            </div>
+                            
+                            <p>Master the core technologies of web development: HTML for structure, CSS for styling, and JavaScript for interactivity.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>HTML5 semantic elements and forms</li>
+                                        <li>CSS3 styling, flexbox, and grid</li>
+                                        <li>Responsive web design principles</li>
+                                        <li>JavaScript fundamentals and DOM manipulation</li>
+                                        <li>ES6 features and modern JavaScript</li>
+                                        <li>AJAX and API integration</li>
+                                        <li>Bootstrap framework</li>
+                                        <li>Git version control basics</li>
+                                        <li>Project: Responsive portfolio website</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in HTML, CSS & JavaScript" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">React.js Frontend Development</h4>
+                                    <div class="course-meta">6 weeks • Modern frontend</div>
+                                </div>
+                            </div>
+                            
+                            <p>Master React.js for building modern, interactive user interfaces. Learn components, hooks, state management and more.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>React basics and JSX</li>
+                                        <li>Components and props</li>
+                                        <li>State and lifecycle methods</li>
+                                        <li>React hooks (useState, useEffect)</li>
+                                        <li>Event handling and forms</li>
+                                        <li>Routing with React Router</li>
+                                        <li>State management with Context API</li>
+                                        <li>API integration and HTTP requests</li>
+                                        <li>Project: Complete React application</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in React.js Frontend Development" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fab fa-php"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">PHP & MySQL Development</h4>
+                                    <div class="course-meta">8 weeks • Backend Development</div>
+                                </div>
+                            </div>
+                            
+                            <p>Learn server-side scripting with PHP and database management with MySQL to create dynamic web applications.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>PHP syntax and fundamentals</li>
+                                        <li>Working with forms and user input</li>
+                                        <li>MySQL database design and queries</li>
+                                        <li>PHP-MySQL integration</li>
+                                        <li>Session management and cookies</li>
+                                        <li>Object-oriented PHP</li>
+                                        <li>Building a CMS from scratch</li>
+                                        <li>Security best practices</li>
+                                        <li>Project: E-commerce website</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in PHP & MySQL Development" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">.NET Framework</h4>
+                                    <div class="course-meta">10 weeks • C# and ASP.NET</div>
+                                </div>
+                            </div>
+                            
+                            <p>Comprehensive .NET training covering C# programming, ASP.NET web development, and database integration.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>C# programming fundamentals</li>
+                                        <li>Object-oriented programming in C#</li>
+                                        <li>ASP.NET MVC architecture</li>
+                                        <li>Entity Framework for data access</li>
+                                        <li>Web API development</li>
+                                        <li>Authentication and authorization</li>
+                                        <li>Deployment and hosting</li>
+                                        <li>Testing and debugging</li>
+                                        <li>Project: Enterprise web application</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in .NET Framework" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <!-- Database Courses -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">SQL Database Management</h4>
+                                    <div class="course-meta">5 weeks • Database Fundamentals</div>
+                                </div>
+                            </div>
+                            
+                            <p>Learn to design, create, and manage relational databases using SQL. Essential for backend developers and data analysts.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Database concepts and design</li>
+                                        <li>SQL syntax and basic queries</li>
+                                        <li>Joins, subqueries, and set operations</li>
+                                        <li>Data manipulation language (DML)</li>
+                                        <li>Data definition language (DDL)</li>
+                                        <li>Stored procedures and functions</li>
+                                        <li>Database normalization</li>
+                                        <li>Transaction management</li>
+                                        <li>Project: Database design for business</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in SQL Database Management" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">MongoDB & NoSQL</h4>
+                                    <div class="course-meta">4 weeks • Document Databases</div>
+                                </div>
+                            </div>
+                            
+                            <p>Master MongoDB, the popular NoSQL database, for modern web applications that require flexible data models.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>NoSQL concepts and MongoDB basics</li>
+                                        <li>CRUD operations in MongoDB</li>
+                                        <li>Data modeling and schema design</li>
+                                        <li>Aggregation framework</li>
+                                        <li>Indexing and performance optimization</li>
+                                        <li>MongoDB with Node.js</li>
+                                        <li>MongoDB Atlas (cloud deployment)</li>
+                                        <li>Security and authentication</li>
+                                        <li>Project: Building an app with MongoDB</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in MongoDB & NoSQL" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <!-- Networking & Other Courses -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Computer Networking</h4>
+                                    <div class="course-meta">6 weeks • CCNA Fundamentals</div>
+                                </div>
+                            </div>
+                            
+                            <p>Learn networking fundamentals, TCP/IP protocols, network security, and prepare for CCNA certification.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Networking concepts and models</li>
+                                        <li>TCP/IP protocol suite</li>
+                                        <li>IP addressing and subnetting</li>
+                                        <li>Routing and switching fundamentals</li>
+                                        <li>Network security principles</li>
+                                        <li>Wireless networking</li>
+                                        <li>Network troubleshooting</li>
+                                        <li>Introduction to Cisco IOS</li>
+                                        <li>Project: Designing a small office network</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Computer Networking" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-file-excel"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Office Automation</h4>
+                                    <div class="course-meta">4 weeks • MS Office Suite</div>
+                                </div>
+                            </div>
+                            
+                            <p>Master Microsoft Office applications including Word, Excel, PowerPoint, and Outlook for professional productivity.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>MS Word: Document formatting and mail merge</li>
+                                        <li>MS Excel: Formulas, functions, and charts</li>
+                                        <li>Advanced Excel: PivotTables and data analysis</li>
+                                        <li>MS PowerPoint: Presentation design</li>
+                                        <li>MS Outlook: Email and calendar management</li>
+                                        <li>Integration between Office applications</li>
+                                        <li>Automation with macros</li>
+                                        <li>Collaboration features</li>
+                                        <li>Project: Office automation for business</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Office Automation" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Tally Prime</h4>
+                                    <div class="course-meta">6 weeks • Accounting Software</div>
+                                </div>
+                            </div>
+                            
+                            <p>Comprehensive Tally Prime training for accounting, inventory management, GST filing, and business operations.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Tally Prime basics and company creation</li>
+                                        <li>Accounting fundamentals and ledger creation</li>
+                                        <li>Inventory management</li>
+                                        <li>GST configuration and billing</li>
+                                        <li>Banking and payment processing</li>
+                                        <li>Payroll management</li>
+                                        <li>Tax calculation and filing</li>
+                                        <li>Data backup and security</li>
+                                        <li>Project: Complete business accounting</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Tally Prime" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Full-Stack Web Development</h4>
+                                    <div class="course-meta">12 weeks • Frontend & Backend</div>
+                                </div>
+                            </div>
+                            
+                            <p>Complete full-stack development course covering HTML, CSS, JavaScript, Node.js, Express, and MongoDB.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>HTML5 and CSS3 fundamentals</li>
+                                        <li>JavaScript and ES6 features</li>
+                                        <li>Responsive design and Bootstrap</li>
+                                        <li>Frontend frameworks (React or Vue)</li>
+                                        <li>Node.js and Express.js</li>
+                                        <li>RESTful API development</li>
+                                        <li>Database design with MongoDB</li>
+                                        <li>Authentication and authorization</li>
+                                        <li>Deployment and DevOps basics</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Full-Stack Web Development" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Faculty Section -->
+                <section id="faculty" class="fade-in">
+                    <h3>Our Expert Faculty</h3>
+                    <p class="text-muted">Learn from industry professionals with real-world experience.</p>
+                    
+                    <div class="faculty-grid">
+                        <div class="faculty-card">
+                            <img src="assets/faculties/harshan.jpg" alt="Mr. Harshan" class="faculty-img">
+                            <h4>Mr. Harshan C.G</h4>
+                            <p class="text-muted">Founder & Lead Instructor</p>
+                            <p>15+ years in software development with expertise in Java, Python, and web technologies.</p>
+                            <div class="faculty-social">
+                                <a href="https://in.linkedin.com/in/harshan-cg-2b7585282"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <img src="assets/faculties/pradeep.png" alt="Pradeep" class="faculty-img">
+                            <h4>Mr. Pradeep S</h4>
+                            <p class="text-muted">Data Science & AI Specialist</p>
+                            <p>10+ years in data analytics, machine learning, and artificial intelligence projects.</p>
+                            <div class="faculty-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <img src="assets/faculties/Nikhitha.jpg"alt="Nikhitha" class="faculty-img">
+                            <h4>Mr. Nikhitha E/h4>
+                            <p class="text-muted">Frontend & UI/UX Specialist</p>
+                            <p>5+ years designing and developing user interfaces for web and mobile applications.</p>
+                            <div class="faculty-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </section>
+
+                <!-- Facilities Section -->
+                <section id="facilities" class="fade-in">
+                    <h3>Our Facilities</h3>
+                    <p class="text-muted">State-of-the-art infrastructure for optimal learning experience.</p>
+                    
+                    <div class="facilities-grid">
+                        <div class="facility-card">
+                            <i class="fas fa-desktop"></i>
+                            <h4>Modern Computer Lab</h4>
+                            <p>High-performance computers with latest software</p>
+                        </div>
+                        
+                        <div class="facility-card">
+                            <i class="fas fa-wifi"></i>
+                            <h4>High-Speed Internet</h4>
+                            <p>Uninterrupted broadband for practical sessions</p>
+                        </div>
+                        
+                        <div class="facility-card">
+                            <i class="fas fa-book"></i>
+                            <h4>Learning Resources</h4>
+                            <p>Access to digital libraries and course materials</p>
+                        </div>
+                        
+                        <div class="facility-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Small Batch Size</h4>
+                            <p>Personalized attention with limited students per batch</p>
+                        </div>
+                                            </div>
+                </section>
+
+                <!-- Testimonials Section -->
+                <section id="testimonials" class="fade-in">
+                    <h3>Student Testimonials</h3>
+                    <p class="text-muted">What our students say about their learning experience.</p>
+                    
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "The Full-Stack Java course helped me land my first job as a software developer. The practical approach and project-based learning were invaluable."
+                            </div>
+                            <div class="testimonial-author">- Rahul S.</div>
+                            <div class="text-muted">Placed at Tech Solutions Inc.</div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Excellent faculty and well-structured curriculum. The internship opportunity after the course gave me real industry exposure."
+                            </div>
+                            <div class="testimonial-author">- Priya M.</div>
+                            <div class="text-muted">Completed Python Development course</div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "The Android Development course was comprehensive and practical. I built 3 complete apps during the course which helped me get a job."
+                            </div>
+                            <div class="testimonial-author">- Ankit P.</div>
+                            <div class="text-muted">Placed as Android Developer</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Google Reviews Section -->
+                <section class="reviews-section fade-in">
+                    <div class="container">
+                        <div class="reviews-header">
+                            <i class="fab fa-google google-logo"></i>
+                            <h3>Google Reviews</h3>
+                        </div>
+                        <p class="text-center text-muted">See what our students are saying about us on Google</p>
+                        
+                        <div class="reviews-grid">
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <img src="assets/students/student3.png" alt="Mounica" class="reviewer-img">
+                                    <div class="reviewer-info">
+                                        <h4>Mounica</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="review-date">2 weeks ago</div>
+                                    </div>
+                                </div>
+                                <p>"Excellent institute with experienced faculty. The Java course helped me secure a job in a reputed company. Highly recommended!"</p>
+                            </div>
+                            
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <img src="assets/students/student2.png" alt="Manju Kavadigas" class="reviewer-img">
+                                    <div class="reviewer-info">
+                                        <h4>Manju Kavadigas</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="review-date">1 month ago</div>
+                                    </div>
+                                </div>
+                                <p>"The Python course was amazing! The faculty is very supportive and the practical approach helped me understand concepts better."</p>
+                            </div>
+                            
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <img src="assets/students/student1.png" alt="Anil Kishan" class="reviewer-img">
+                                    <div class="reviewer-info">
+                                        <h4>Anil Kishan</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="review-date">3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <p>"Great institute for learning web development. The Full-Stack course covers everything from basics to advanced topics. Worth every penny!"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center" style="margin-top: 30px;">
+                            <a href="https://www.google.com/search?q=harshan+digi+tech+computer+coaching+institute+chikkaballapur&rlz=1C1CHBD_en-GBIN1170IN1170&oq=&gs_lcrp=EgZjaHJvbWUqCQgBECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyDAgCECMYJxjqAhitBjIJCAMQIxgnGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgkIBxAjGCcY6gIyFQgIEAAYQhiRAhi0AhjqAhiABBiKBTIVCAkQABhCGJECGLQCGOoCGIAEGIoFMhUIChAAGEIYkQIYtAIY6gIYgAQYigUyFQgLEAAYQhiRAhi0AhjqAhiABBiKBdIBCTEwOTZqMGoxNagCDLACAfEFsUTAMbbCYWg&sourceid=chrome&ie=UTF-8" class="btn btn-secondary">
+                                <i class="fab fa-google"></i> See All Reviews on Google
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gallery Section -->
+                <section id="gallery" class="fade-in">
+                    <h3>Gallery</h3>
+                    <p class="text-muted">Glimpse of our institute, classes, and student activities.</p>
+                    
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Computer lab">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Classroom session">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Student project">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/students/student.jpg" alt="Group discussion">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="fade-in">
+                    <h3>Contact Us</h3>
+                    <p class="text-muted">Get in touch for course details, fees, and admission process.</p>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="course">Course Interested In</label>
+                                <select id="course" class="form-control">
+                                    <option value="">Select a course</option>
+                                    <option value="c-programming">C Programming</option>
+                                    <option value="cpp-programming">C++ Programming</option>
+                                    <option value="java-programming">Java Programming</option>
+                                    <option value="python-programming">Python Programming</option>
+                                    <option value="html-css-js">HTML, CSS & JavaScript</option>
+                                    <option value="react-js">React.js Frontend Development</option>
+                                    <option value="php-mysql">PHP & MySQL Development</option>
+                                    <option value="dot-net">.NET Framework</option>
+                                    <option value="sql">SQL Database Management</option>
+                                    <option value="mongodb">MongoDB & NoSQL</option>
+                                    <option value="networking">Computer Networking</option>
+                                    <option value="office-automation">Office Automation</option>
+                                    <option value="tally">Tally Prime</option>
+                                    <option value="full-stack">Full-Stack Web Development</option>
+                                    <option value="internship">Internship Program</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="Any specific questions or requirements..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                                <button type="reset" class="btn btn-secondary">Clear Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-card card">
+                    <h4>Quick Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Chikkaballapur, Karnataka</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 9972235179</p>
+                    <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +91 9972235179</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> harshandigitech@gmail.com</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/harshan.cg/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/harshancg/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://in.linkedin.com/in/harshan-cg-2b7585282"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@harshancg"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="sidebar-card card">
+                    <h4>Location</h4>
+                    <div class="map-container">
+                        <!-- Placeholder for Google Maps embed -->
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.651278574515!2d77.7321889!3d13.4338993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb1ef0079b9cf81%3A0x4851ac4bc85764c!2sHarshan%20Digi-Tech%20Computer%20Solutions%20%26%20Digital%20Services!5e0!3m2!1sen!2sin!4v1759055990470!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div style="background: #f1f5f9; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius); color: var(--text-muted);">
+                            <p>Map of Chikkaballapur location</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-card card">
+                    <h4>Upcoming Batches</h4>
+                    <ul class="footer-links">
+                        <li><strong>Full-Stack Java:</strong> Starting Oct 15</li>
+                        <li><strong>Python Development:</strong> Starting Oct 20</li>
+                        <li><strong>React.js:</strong> Starting Nov 1</li>
+                        <li><strong>Android Development:</strong> Starting Nov 10</li>
+                        <li><strong>Tally Prime:</strong> Starting Nov 15</li>
+                        <li><strong>Office Automation:</strong> Starting Nov 20</li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card card">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#courses">Course Catalog</a></li>
+                        <li><a href="#offers">Special Offers</a></li>
+                        <li><a href="#faculty">Meet Our Faculty</a></li>
+                        <li><a href="#testimonials">Student Success Stories</a></li>
+                        <li><a href="#gallery">Campus Photos</a></li>
+                        <li><a href="#contact">Schedule a Visit</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Harshan DigiTech</h4>
+                    <p>Providing quality IT education with practical training and placement assistance in Chikkaballapur.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/harshan.cg/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/harshancg/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://in.linkedin.com/in/harshan-cg-2b7585282"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@harshancg"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#offers">Special Offers</a></li>
+                        <li><a href="#faculty">Faculty</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Popular Courses</h4>
+                    <ul class="footer-links">
+                        <li><a href="#courses">Full-Stack Java Development</a></li>
+                        <li><a href="#courses">Full-Stack Python Development</a></li>
+                        <li><a href="#courses">React.js Frontend Development</a></li>
+                        <li><a href="#courses">Android App Development</a></li>
+                        <li><a href="#courses">Tally Prime</a></li>
+                        <li><a href="#courses">Office Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Chikkaballapur, Karnataka</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9972235179</p>
+                    <p><i class="fab fa-whatsapp"></i> +91 9972235179</p>
+                    <p><i class="fas fa-envelope"></i> harshandigitech@gmail.com</p>
+                    
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Harshan DigiTech. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for quality education</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            this.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    const hamburger = document.getElementById('hamburger');
+                    mobileMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const course = document.getElementById('course').value;
+            
+            // Create WhatsApp message
+            let message = `Hi, I'm ${name}. I'm interested in ${course || 'a course'}. Please contact me at ${phone}.`;
+            if (document.getElementById('message').value) {
+                message += ` My message: ${document.getElementById('message').value}`;
+            }
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/919972235179?text=${encodedMessage}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show confirmation (you could add a toast notification here)
+            alert('Thank you! Redirecting to WhatsApp to continue the conversation.');
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Update active navigation link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-desktop a, .mobile-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
