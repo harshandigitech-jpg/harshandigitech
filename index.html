@@ -1232,6 +1232,41 @@
             .advertise-banner h3 {
                 font-size: 1.5rem;
             }
+             .visitor-counter {
+                bottom: 80px;
+                left: 5px;
+                padding: 8px 12px;
+                font-size: 0.75rem;
+            }
+
+        }
+
+        /* ===== Visitor Counter ===== */
+        .visitor-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 10px 15px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .visitor-counter:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .visitor-counter i {
+            font-size: 1rem;
         }
 
         /* ===== Animations ===== */
@@ -1323,6 +1358,11 @@
             </nav>
         </div>
     </header>
+  <!-- Visitor Counter -->
+    <div class="visitor-counter">
+        <i class="fas fa-users"></i>
+        <span id="visitorCount">Loading...</span>
+    </div>
 
     <div class="container">
         <!-- Hero Section -->
@@ -1330,7 +1370,9 @@
             <div class="hero-content">
                 <span class="badge badge-primary">Start your tech career</span>
                 <h2>Practical IT Training with Placement Assistance</h2>
-                <p>Industry-aligned courses: Full-Stack Development (Java & Python), Web Technologies, Mobile App Development, Data Science, and more. Small batches with personalized mentorship.</p>
+                <p>Industry-aligned courses: Full-Stack Development (Java & Python), 
+                    Web Technologies, Mobile App Development, Data Science, Cyber Security and more.
+                    Small batches with personalized mentorship.</p>
                 
                 <div class="hero-actions">
                     <a href="#courses" class="btn btn-primary">
@@ -1635,7 +1677,45 @@
                                 <i class="fab fa-whatsapp"></i> Enroll Now
                             </a>
                         </div>
-                        
+                         <!-- Cyber Security Course -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <div class="course-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="course-title">Cyber Security</h4>
+                                    <div class="course-meta">12 weeks • Ethical Hacking & Defense</div>
+                                </div>
+                            </div>
+                            
+                            <p>Comprehensive cyber security training covering ethical hacking, network security, cryptography, and defense strategies.</p>
+                            
+                            <details class="course-details">
+                                <summary>Syllabus</summary>
+                                <div class="course-syllabus">
+                                    <ol>
+                                        <li>Introduction to Cyber Security & Ethical Hacking</li>
+                                        <li>Footprinting and Reconnaissance</li>
+                                        <li>Network Scanning and Enumeration</li>
+                                        <li>Vulnerability Analysis</li>
+                                        <li>System Hacking & Malware Threats</li>
+                                        <li>Social Engineering & Physical Security</li>
+                                        <li>Web Application Security & SQL Injection</li>
+                                        <li>Wireless Network Security</li>
+                                        <li>Cryptography & Steganography</li>
+                                        <li>Cloud Security & IoT Security</li>
+                                        <li>Incident Response & Digital Forensics</li>
+                                        <li>Project: Security Audit & Penetration Testing</li>
+                                    </ol>
+                                </div>
+                            </details>
+                            
+                            <a href="https://wa.me/919972235179?text=I'm interested in Cyber Security" class="btn btn-primary enroll-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enroll Now
+                            </a>
+                        </div>
+
                         <div class="course-card">
                             <div class="course-header">
                                 <div class="course-icon">
@@ -2427,7 +2507,27 @@
                     current = section.getAttribute('id');
                 }
             });
+              // Visitor Counter
+        function updateVisitorCount() {
+            // Get current count from localStorage or set to 0
+            let count = localStorage.getItem('visitorCount') || 0;
             
+            // Check if this is a new session
+            if (!sessionStorage.getItem('visited')) {
+                count = parseInt(count) + 1;
+                localStorage.setItem('visitorCount', count);
+                sessionStorage.setItem('visited', 'true');
+            }
+            
+            // Format the number with commas
+            const formattedCount = parseInt(count).toLocaleString();
+            
+            // Update the counter display
+            document.getElementById('visitorCount').textContent = `${formattedCount}+ Visitors`;
+        }
+        
+        // Initialize visitor counter
+        updateVisitorCount();
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
