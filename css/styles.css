@@ -1,0 +1,24 @@
+.header {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    text-align: center;
+    /* Removed duplicate padding declaration */ 
+}
+
+.testimonial-card {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    /* Removed the duplicate border declaration */ 
+}
+
+.course-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Added missing box-shadow style */ 
+    transition: transform 0.2s;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+/* Additional optimized styles can be added below */
